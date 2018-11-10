@@ -1,0 +1,71 @@
+﻿@using Carrent.DBModels
+@model CarInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("AdminVehicle", "Admin", FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-center">
+
+            <div class="col-lg-5  col-md-6 header-right">
+                <h4 class="text-white pb-30 text-center">Add Car To Lot</h4>
+                <form class="form" role="form" autocomplete="off">
+                    <div class="form-group">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input class="form-control txt-field" type="text" name="Name" placeholder="Vehicle Name">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-12">
+                                <input class="form-control txt-field" type="text" name="Model" placeholder="Model">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input class="form-control txt-field" type="text" name="Color" placeholder="Color">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input class="form-control txt-field" type="text" name="Registration" placeholder="Registration">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input class="form-control txt-field" type="file" name="ImageUrl" placeholder="">
+
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                @*<input class="form-control txt-field" type="text" name="name" placeholder="Color">*@
+                                @Html.DropDownListFor(x => x.CarTypeId, (SelectList)ViewBag.CarTypeList, "Select Car Type", new { @class = "form-control txt-field" })
+
+                            </div>
+                        </div>
+                        <p>
+                            @Html.ActionLink("If Car type is not availble Add here!", "CarType")
+                        </p>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-default btn-lg btn-block text-center text-uppercase">Confirm</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+}
